@@ -49,21 +49,26 @@ label {
 .toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  background-color: #f1f1f1;
+  background-color: #f0efef;
   padding: 10px;
   font-weight: bold;
 }
 .editor {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  display:inline-block;
+  flex-direction:column;
+  align-items: stretch
 }
+
 
 .editor-textarea {
   flex: 1;
-  width: 100%;
-  max-width: auto;
-  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  width:400px;
+  height: 400px;
+  max-width: 400px;
+  max-height: 800px;
   resize: vertical;
 }
+
+
