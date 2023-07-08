@@ -71,4 +71,11 @@ label {
   resize: vertical;
 }
 
-
+.preview-textarea {
+  width: 100%;
+  height: 200px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  overflow: auto;
+}

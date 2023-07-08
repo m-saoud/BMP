@@ -1,7 +1,8 @@
 import { useState } from "react";
+import marked from "marked";
+import ReactMarkdown from "react-markdown";
 
 import "./App.css";
-import { Container } from "react-bootstrap";
 
 function App() {
   const [editorContent, setEditorContent] = useState("");
@@ -9,15 +10,17 @@ function App() {
   const handleEditorChange = (e) => {
     setEditorContent(e.target.value);
   };
-
+  const getPreviewHtml = () => {
+    return { __html: marked(editorContent) };
+  };
   return (
     <>
       <h1>Build a Markdown Previewer</h1>
-      <container className="fluid-container">
+      <div className="fluid-container">
         <div className="editor">
-          <div class="toolbar">
+          <div className="toolbar">
             <i></i>Editor
-            <i class="fa fa-arrows-alt"></i>
+            <i className="fa fa-arrows-alt"></i>
           </div>
 
           <textarea
@@ -28,19 +31,16 @@ function App() {
           ></textarea>
 
           <div className="preview">
-            <div class="toolbar">
+            <div className="toolbar">
               <i></i>Preview
-              <i class="fa fa-arrows-alt"></i>
+              <i className="fa fa-arrows-alt"></i>
             </div>
-            <textarea
-              value={editorContent}
-              readOnly
-              className="editor-textarea"
-              id="preview"
-            ></textarea>
+           <div className="preview-textarea" id="preview">
+            <ReactMarkdown>{editorContent}</ReactMarkdown>
+          </div> 
           </div>
         </div>
-      </container>
+      </div>
     </>
   );
 }
